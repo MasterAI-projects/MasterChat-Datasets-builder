@@ -16,3 +16,18 @@ A lightweight dataset builder for AI projects. MasterChat-Datasets Builder allow
 ## 📦 Installation
 ```bash
 pip install datasets transformers pyarrow
+# Quickstart
+from downloader import download_and_filter_dataset
+from tokenised import create_tokenizer, tokenize_dataset
+from convert import save_raw_py_files, save_tokenized_parquet
+
+# Step 1: Download + Filter
+dataset = download_and_filter_dataset()
+
+# Step 2: Tokenize
+tokenizer = create_tokenizer("gpt2")
+tokenized_dataset = tokenize_dataset(dataset, tokenizer)
+
+# Step 3: Save
+save_raw_py_files(dataset)
+save_tokenized_parquet(tokenized_dataset)
